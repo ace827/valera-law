@@ -3,1704 +3,341 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Valera Law | Bilingual Legal Services — English & Español</title>
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;500;600;700;800;900&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <title>Valera Law — Bilingual AI Receptionist</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-  <!-- Retell AI Widget -->
   <script id="retell-widget"
     src="https://dashboard.retellai.com/retell-widget-v2.js"
     data-voice-public-key="public_key_6cd2e49d6a19462f4096f"
     data-voice-agent-id="agent_58c9c44295abeef365b6eee378"
     data-title="Valera Law"
     data-color="#1e4d8c"
-    data-fab-text="Speak with Us"
-    data-bot-name="Valera Law AI Receptionist"
-    data-greeting-message="Hello! Thank you for calling Valera Law. How can I help you today? / ¡Hola! Gracias por llamar a Valera Law. ¿En qué le puedo ayudar hoy?"
+    data-fab-text="Talk to Us"
+    data-bot-name="Valera Law Receptionist"
+    data-greeting-message="Hello! Thank you for calling Valera Law. How can I help you today? / ¡Hola! Gracias por llamar a Valera Law. ¿En qué le puedo ayudar?"
   ></script>
 
   <style>
-    :root {
-      --navy:    #0d1f3c;
-      --navy2:   #132b52;
-      --navy3:   #1a3468;
-      --gold:    #c9a84c;
-      --gold2:   #e2bc6a;
-      --gold3:   #a8893a;
-      --off:     #f8f7f4;
-      --warm:    #f0ede6;
-      --border:  #e0dbd0;
-      --mid:     #7a7264;
-      --dark:    #2c3e50;
-      --card:    #f4f1eb;
-      --white:   #ffffff;
-      --red:     #c0392b;
-      --green:   #1a6b3a;
-    }
-
-    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
-
     body {
       font-family: 'Inter', sans-serif;
-      background: var(--white);
-      color: var(--dark);
-      overflow-x: hidden;
+      background: #f9f8f6;
+      color: #1a1a2e;
+      min-height: 100vh;
     }
 
-    h1, h2, h3, h4 { font-family: 'Raleway', sans-serif; }
-
-    /* ── TOPBAR ── */
-    .topbar {
-      background: var(--navy);
-      color: rgba(255,255,255,0.75);
-      font-size: 0.8rem;
-      padding: 8px 0;
-    }
-    .topbar-inner {
-      max-width: 1200px; margin: 0 auto; padding: 0 24px;
-      display: flex; align-items: center; justify-content: space-between; gap: 12px;
-      flex-wrap: wrap;
-    }
-    .topbar-left { display: flex; align-items: center; gap: 20px; flex-wrap: wrap; }
-    .topbar-item { display: flex; align-items: center; gap: 6px; }
-    .topbar-item svg { width: 14px; height: 14px; color: var(--gold); }
-    .topbar-right { display: flex; align-items: center; gap: 12px; }
-    .lang-badge {
-      background: var(--gold); color: var(--navy);
-      font-weight: 700; font-size: 0.72rem; letter-spacing: 0.05em;
-      padding: 3px 10px; border-radius: 20px;
-    }
-    .topbar-cta {
-      background: var(--gold); color: var(--navy);
-      font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 0.8rem;
-      padding: 6px 16px; border-radius: 4px; text-decoration: none;
-      transition: background 0.2s;
-    }
-    .topbar-cta:hover { background: var(--gold2); }
-
-    /* ── NAV ── */
+    /* NAV */
     nav {
-      position: sticky; top: 0; z-index: 100;
-      background: var(--white);
-      border-bottom: 1px solid var(--border);
-      box-shadow: 0 2px 12px rgba(13,31,60,0.08);
+      background: #0d1f3c;
+      padding: 18px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
     }
-    .nav-inner {
-      max-width: 1200px; margin: 0 auto; padding: 0 24px;
-      display: flex; align-items: center; gap: 32px; height: 68px;
+    .logo {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: #fff;
+      letter-spacing: -0.01em;
     }
-    .nav-logo { display: flex; align-items: center; gap: 10px; text-decoration: none; }
-    .nav-logo-mark {
-      width: 42px; height: 42px; background: var(--navy);
-      border-radius: 6px; display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
+    .logo span { color: #c9a84c; }
+    .lang-tag {
+      background: rgba(201,168,76,0.15);
+      border: 1px solid rgba(201,168,76,0.4);
+      color: #c9a84c;
+      font-size: 0.72rem;
+      font-weight: 600;
+      padding: 4px 12px;
+      border-radius: 20px;
+      letter-spacing: 0.05em;
     }
-    .nav-logo-mark svg { width: 22px; height: 22px; color: var(--gold); }
-    .nav-logo-text { display: flex; flex-direction: column; line-height: 1.1; }
-    .nav-logo-name {
-      font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 1.1rem;
-      color: var(--navy); letter-spacing: -0.01em;
+
+    /* HERO */
+    .hero {
+      background: linear-gradient(135deg, #0d1f3c 0%, #1a3468 100%);
+      padding: 72px 24px 60px;
+      text-align: center;
     }
-    .nav-logo-sub { font-size: 0.68rem; color: var(--mid); letter-spacing: 0.06em; text-transform: uppercase; }
-    .nav-links { display: flex; align-items: center; gap: 24px; margin-left: auto; }
-    .nav-links a {
-      font-size: 0.85rem; font-weight: 500; color: var(--dark);
-      text-decoration: none; transition: color 0.2s;
+    .hero-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      background: rgba(201,168,76,0.12);
+      border: 1px solid rgba(201,168,76,0.3);
+      color: #c9a84c;
+      font-size: 0.75rem;
+      font-weight: 600;
+      padding: 5px 14px;
+      border-radius: 20px;
+      margin-bottom: 24px;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
     }
-    .nav-links a:hover { color: var(--navy); }
-    .nav-cta {
-      background: var(--navy); color: var(--white);
-      font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 0.88rem;
-      padding: 10px 22px; border-radius: 5px; text-decoration: none;
-      transition: background 0.2s; white-space: nowrap;
-    }
-    .nav-cta:hover { background: var(--navy3); }
-    .bilingual-dot {
-      display: flex; align-items: center; gap: 6px;
-      font-size: 0.75rem; font-weight: 600; color: var(--gold3);
-      letter-spacing: 0.03em;
-    }
-    .bilingual-dot::before {
-      content: ''; width: 8px; height: 8px; border-radius: 50%;
-      background: var(--gold); display: inline-block;
+    .pulse {
+      width: 7px; height: 7px;
+      background: #c9a84c;
+      border-radius: 50%;
       animation: pulse 2s infinite;
     }
     @keyframes pulse {
-      0%,100% { opacity: 1; transform: scale(1); }
-      50% { opacity: 0.6; transform: scale(1.3); }
+      0%,100% { opacity:1; transform:scale(1); }
+      50% { opacity:0.5; transform:scale(1.4); }
     }
-
-    /* ── HERO ── */
-    .hero {
-      position: relative; min-height: 92vh;
-      display: flex; align-items: center; overflow: hidden;
-    }
-    .hero-img {
-      position: absolute; inset: 0;
-      background-image: url('https://images.unsplash.com/photo-1589829545856-d10d557cf95f?w=1920&q=85');
-      background-size: cover; background-position: center top;
-    }
-    .hero-img::after {
-      content: ''; position: absolute; inset: 0;
-      background: linear-gradient(105deg, rgba(13,31,60,0.92) 45%, rgba(13,31,60,0.6) 100%);
-    }
-    .hero-inner {
-      position: relative; z-index: 2;
-      max-width: 1200px; margin: 0 auto; padding: 80px 24px;
-      display: grid; grid-template-columns: 1fr 380px; gap: 60px; align-items: center;
-      width: 100%;
-    }
-    .hero-badge {
-      display: inline-flex; align-items: center; gap: 8px;
-      background: rgba(201,168,76,0.15); border: 1px solid rgba(201,168,76,0.4);
-      color: var(--gold2); font-size: 0.78rem; font-weight: 600;
-      padding: 6px 14px; border-radius: 20px; margin-bottom: 20px;
-      letter-spacing: 0.04em; text-transform: uppercase;
-    }
-    .hero-badge svg { width: 14px; height: 14px; }
     .hero h1 {
-      font-size: clamp(2.2rem, 5vw, 3.6rem);
-      font-weight: 900; color: var(--white); line-height: 1.1;
-      margin-bottom: 12px; letter-spacing: -0.02em;
+      font-size: clamp(1.8rem, 5vw, 2.8rem);
+      font-weight: 700;
+      color: #fff;
+      line-height: 1.2;
+      margin-bottom: 14px;
+      letter-spacing: -0.02em;
     }
-    .hero h1 span { color: var(--gold); }
-    .hero-es {
-      font-family: 'Raleway', sans-serif;
-      font-size: clamp(1rem, 2.2vw, 1.4rem);
-      color: rgba(255,255,255,0.65); font-style: italic;
-      font-weight: 500; margin-bottom: 20px;
+    .hero h1 em {
+      font-style: normal;
+      color: #c9a84c;
     }
-    .hero-desc {
-      color: rgba(255,255,255,0.8); font-size: 1.05rem;
-      line-height: 1.7; margin-bottom: 32px; max-width: 520px;
+    .hero p {
+      font-size: 1rem;
+      color: rgba(255,255,255,0.65);
+      max-width: 480px;
+      margin: 0 auto 10px;
+      line-height: 1.65;
     }
-    .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
-    .btn-primary {
-      background: var(--gold); color: var(--navy);
-      font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 0.95rem;
-      padding: 14px 30px; border-radius: 5px; text-decoration: none;
-      transition: background 0.2s, transform 0.15s; display: inline-flex; align-items: center; gap: 8px;
+    .hero p.es {
+      font-style: italic;
+      color: rgba(255,255,255,0.4);
+      font-size: 0.88rem;
+      margin-bottom: 36px;
     }
-    .btn-primary:hover { background: var(--gold2); transform: translateY(-1px); }
-    .btn-secondary {
-      background: transparent; color: var(--white);
-      font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 0.95rem;
-      padding: 14px 28px; border-radius: 5px; text-decoration: none;
-      border: 2px solid rgba(255,255,255,0.35);
-      transition: border-color 0.2s, background 0.2s; display: inline-flex; align-items: center; gap: 8px;
+    .arrow-down {
+      margin-top: 10px;
+      display: flex;
+      justify-content: center;
     }
-    .btn-secondary:hover { border-color: var(--gold); background: rgba(201,168,76,0.1); }
+    .arrow-down svg {
+      color: rgba(255,255,255,0.25);
+      animation: bounce 2s infinite;
+    }
+    @keyframes bounce {
+      0%,100% { transform: translateY(0); }
+      50% { transform: translateY(6px); }
+    }
 
-    /* Hero card */
-    .hero-card {
-      background: var(--white); border-radius: 12px;
-      padding: 32px 28px; box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+    /* FEATURES */
+    .features {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 56px 24px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
     }
-    .hero-card-title {
-      font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 1.05rem;
-      color: var(--navy); margin-bottom: 6px;
+    .feature {
+      background: #fff;
+      border: 1px solid #e8e4dc;
+      border-radius: 12px;
+      padding: 24px 20px;
     }
-    .hero-card-sub {
-      font-size: 0.78rem; color: var(--mid); margin-bottom: 20px;
-    }
-    .bilingual-highlight {
-      background: linear-gradient(135deg, #0d1f3c 0%, #1a3468 100%);
-      border-radius: 8px; padding: 20px;
-      display: flex; flex-direction: column; gap: 12px;
-      margin-bottom: 20px;
-    }
-    .bilingual-row {
-      display: flex; align-items: center; gap: 12px;
-    }
-    .lang-flag {
-      width: 32px; height: 32px; border-radius: 50%;
+    .feature-icon {
+      width: 40px; height: 40px;
+      background: #0d1f3c;
+      border-radius: 8px;
       display: flex; align-items: center; justify-content: center;
-      font-size: 1.1rem; flex-shrink: 0;
-      background: rgba(255,255,255,0.1);
-    }
-    .bilingual-text { color: var(--white); }
-    .bilingual-text strong { display: block; font-size: 0.85rem; font-weight: 700; }
-    .bilingual-text span { font-size: 0.75rem; color: rgba(255,255,255,0.6); }
-    .lang-divider {
-      height: 1px; background: rgba(255,255,255,0.15); margin: 2px 0;
-    }
-    .hero-card-feature {
-      display: flex; align-items: flex-start; gap: 10px; margin-bottom: 12px;
-    }
-    .hero-card-feature svg { width: 18px; height: 18px; color: var(--gold); flex-shrink: 0; margin-top: 1px; }
-    .hero-card-feature p { font-size: 0.85rem; color: var(--dark); line-height: 1.5; }
-    .hero-card-feature strong { color: var(--navy); }
-    .hero-card-cta {
-      display: block; text-align: center;
-      background: var(--gold); color: var(--navy);
-      font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 0.92rem;
-      padding: 13px; border-radius: 6px; text-decoration: none;
-      transition: background 0.2s;
-    }
-    .hero-card-cta:hover { background: var(--gold2); }
-
-    /* ── STATS BAND ── */
-    .stats-band {
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy3) 100%);
-      padding: 40px 0;
-    }
-    .stats-inner {
-      max-width: 1200px; margin: 0 auto; padding: 0 24px;
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 0;
-    }
-    .stat-item {
-      text-align: center; padding: 8px 20px;
-      border-right: 1px solid rgba(255,255,255,0.1);
-    }
-    .stat-item:last-child { border-right: none; }
-    .stat-number {
-      font-family: 'Raleway', sans-serif; font-weight: 900;
-      font-size: 2.4rem; color: var(--gold); line-height: 1;
-      margin-bottom: 4px;
-    }
-    .stat-label { font-size: 0.82rem; color: rgba(255,255,255,0.7); line-height: 1.4; }
-
-    /* ── BILINGUAL SECTION ── */
-    .bilingual-section {
-      padding: 80px 0; background: var(--white);
-    }
-    .section-inner { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
-    .section-label {
-      font-size: 0.75rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.1em; color: var(--gold3); margin-bottom: 12px;
-    }
-    .section-title {
-      font-family: 'Raleway', sans-serif; font-weight: 900;
-      font-size: clamp(1.8rem, 3.5vw, 2.6rem); color: var(--navy);
-      line-height: 1.15; margin-bottom: 16px; letter-spacing: -0.01em;
-    }
-    .section-title span { color: var(--gold3); }
-    .section-desc { color: var(--mid); font-size: 1rem; line-height: 1.7; max-width: 560px; margin-bottom: 40px; }
-
-    .bilingual-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
-    }
-    .bilingual-demo-card {
-      background: linear-gradient(145deg, #0d1f3c, #1a3468);
-      border-radius: 16px; padding: 36px; position: relative; overflow: hidden;
-    }
-    .bilingual-demo-card::before {
-      content: ''; position: absolute; top: -40px; right: -40px;
-      width: 200px; height: 200px; border-radius: 50%;
-      background: radial-gradient(circle, rgba(201,168,76,0.15) 0%, transparent 70%);
-    }
-    .demo-chat { display: flex; flex-direction: column; gap: 14px; }
-    .chat-bubble {
-      display: flex; gap: 10px; align-items: flex-start;
-    }
-    .chat-bubble.right { flex-direction: row-reverse; }
-    .chat-avatar {
-      width: 36px; height: 36px; border-radius: 50%; flex-shrink: 0;
-      background: rgba(255,255,255,0.1);
-      display: flex; align-items: center; justify-content: center;
-      font-size: 0.75rem; font-weight: 700; color: var(--gold);
-    }
-    .chat-text {
-      background: rgba(255,255,255,0.1); color: var(--white);
-      border-radius: 12px; border-top-left-radius: 3px;
-      padding: 10px 14px; font-size: 0.84rem; line-height: 1.5;
-      max-width: 80%;
-    }
-    .chat-bubble.right .chat-text {
-      background: rgba(201,168,76,0.2); border-radius: 12px; border-top-right-radius: 3px;
-      color: var(--gold2);
-    }
-    .chat-lang-tag {
-      font-size: 0.65rem; font-weight: 700; letter-spacing: 0.05em;
-      color: rgba(255,255,255,0.4); text-transform: uppercase; margin-top: 4px;
-    }
-    .demo-label {
-      font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 0.85rem;
-      color: var(--gold); text-transform: uppercase; letter-spacing: 0.06em;
-      margin-bottom: 20px; display: flex; align-items: center; gap: 8px;
-    }
-    .demo-label::after {
-      content: ''; flex: 1; height: 1px; background: rgba(201,168,76,0.3);
-    }
-
-    .bilingual-benefits { display: flex; flex-direction: column; gap: 24px; }
-    .benefit-item {
-      display: flex; gap: 16px; align-items: flex-start;
-    }
-    .benefit-icon {
-      width: 48px; height: 48px; border-radius: 10px;
-      background: var(--warm); display: flex; align-items: center; justify-content: center;
-      flex-shrink: 0;
-    }
-    .benefit-icon svg { width: 22px; height: 22px; color: var(--navy); }
-    .benefit-title {
-      font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 1rem;
-      color: var(--navy); margin-bottom: 4px;
-    }
-    .benefit-desc { font-size: 0.88rem; color: var(--mid); line-height: 1.6; }
-
-    /* ── HOW IT WORKS ── */
-    .how-section { padding: 80px 0; background: var(--off); }
-    .steps-grid {
-      display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
-      margin-top: 48px;
-    }
-    .step-card {
-      background: var(--white); border-radius: 12px; padding: 28px 24px;
-      border: 1px solid var(--border); position: relative;
-      transition: box-shadow 0.25s, transform 0.25s;
-    }
-    .step-card:hover { box-shadow: 0 12px 40px rgba(13,31,60,0.1); transform: translateY(-3px); }
-    .step-num {
-      font-family: 'Raleway', sans-serif; font-weight: 900; font-size: 3rem;
-      color: rgba(13,31,60,0.07); line-height: 1; margin-bottom: 16px;
-    }
-    .step-icon { width: 44px; height: 44px; color: var(--navy); margin-bottom: 14px; }
-    .step-title {
-      font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 1.05rem;
-      color: var(--navy); margin-bottom: 8px;
-    }
-    .step-title-es { font-size: 0.8rem; color: var(--gold3); font-style: italic; margin-bottom: 10px; }
-    .step-desc { font-size: 0.85rem; color: var(--mid); line-height: 1.6; }
-
-    /* ── SERVICES ── */
-    .services-section { padding: 80px 0; background: var(--white); }
-    .services-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
-      margin-top: 48px;
-    }
-    .service-card {
-      background: var(--card); border-radius: 12px; padding: 28px 24px;
-      border: 1px solid var(--border);
-      transition: box-shadow 0.25s, transform 0.25s;
-    }
-    .service-card:hover { box-shadow: 0 12px 40px rgba(13,31,60,0.1); transform: translateY(-3px); }
-    .service-icon {
-      width: 52px; height: 52px; border-radius: 10px;
-      background: var(--navy); display: flex; align-items: center; justify-content: center;
-      margin-bottom: 18px;
-    }
-    .service-icon svg { width: 24px; height: 24px; color: var(--gold); }
-    .service-name {
-      font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 1.05rem;
-      color: var(--navy); margin-bottom: 4px;
-    }
-    .service-name-es { font-size: 0.8rem; color: var(--gold3); font-style: italic; margin-bottom: 10px; }
-    .service-desc { font-size: 0.85rem; color: var(--mid); line-height: 1.6; margin-bottom: 14px; }
-    .service-list { list-style: none; display: flex; flex-direction: column; gap: 6px; }
-    .service-list li {
-      font-size: 0.82rem; color: var(--dark); display: flex; align-items: flex-start; gap: 7px;
-    }
-    .service-list li svg { width: 14px; height: 14px; color: var(--gold3); flex-shrink: 0; margin-top: 2px; }
-
-    /* ── AI RECEPTIONIST SECTION ── */
-    .ai-section {
-      padding: 80px 0;
-      background: linear-gradient(135deg, var(--navy) 0%, var(--navy3) 100%);
-    }
-    .ai-inner {
-      max-width: 1200px; margin: 0 auto; padding: 0 24px;
-      display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center;
-    }
-    .ai-content .section-label { color: var(--gold2); }
-    .ai-content .section-title { color: var(--white); }
-    .ai-content .section-title span { color: var(--gold); }
-    .ai-content .section-desc { color: rgba(255,255,255,0.7); }
-    .ai-features { display: flex; flex-direction: column; gap: 16px; margin-top: 8px; }
-    .ai-feature {
-      display: flex; gap: 12px; align-items: flex-start;
-      background: rgba(255,255,255,0.06); border-radius: 8px; padding: 14px 16px;
-      border: 1px solid rgba(255,255,255,0.08);
-    }
-    .ai-feature svg { width: 20px; height: 20px; color: var(--gold); flex-shrink: 0; margin-top: 1px; }
-    .ai-feature-title {
-      font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 0.95rem;
-      color: var(--white); margin-bottom: 2px;
-    }
-    .ai-feature-desc { font-size: 0.82rem; color: rgba(255,255,255,0.6); line-height: 1.5; }
-
-    .ai-phone-demo {
-      background: rgba(255,255,255,0.05);
-      border: 1px solid rgba(255,255,255,0.1);
-      border-radius: 20px; padding: 32px;
-      display: flex; flex-direction: column; gap: 16px;
-    }
-    .phone-demo-top {
-      display: flex; align-items: center; gap: 12px;
-      padding-bottom: 16px; border-bottom: 1px solid rgba(255,255,255,0.1);
-    }
-    .phone-status-dot {
-      width: 10px; height: 10px; border-radius: 50%;
-      background: #22c55e; box-shadow: 0 0 8px #22c55e;
-      animation: pulse 2s infinite;
-    }
-    .phone-status-text { font-size: 0.82rem; color: rgba(255,255,255,0.7); }
-    .phone-status-text strong { color: var(--white); }
-    .phone-waveform {
-      display: flex; align-items: center; justify-content: center;
-      gap: 4px; height: 60px;
-    }
-    .wave-bar {
-      width: 4px; background: var(--gold);
-      border-radius: 2px; opacity: 0.7;
-      animation: wave 1.2s ease-in-out infinite;
-    }
-    .wave-bar:nth-child(1) { height: 20px; animation-delay: 0s; }
-    .wave-bar:nth-child(2) { height: 35px; animation-delay: 0.1s; }
-    .wave-bar:nth-child(3) { height: 50px; animation-delay: 0.2s; }
-    .wave-bar:nth-child(4) { height: 40px; animation-delay: 0.3s; }
-    .wave-bar:nth-child(5) { height: 55px; animation-delay: 0.4s; }
-    .wave-bar:nth-child(6) { height: 30px; animation-delay: 0.5s; }
-    .wave-bar:nth-child(7) { height: 45px; animation-delay: 0.6s; }
-    .wave-bar:nth-child(8) { height: 20px; animation-delay: 0.7s; }
-    .wave-bar:nth-child(9) { height: 35px; animation-delay: 0.8s; }
-    @keyframes wave {
-      0%, 100% { transform: scaleY(0.5); opacity: 0.5; }
-      50% { transform: scaleY(1); opacity: 1; }
-    }
-    .phone-transcript { display: flex; flex-direction: column; gap: 10px; }
-    .transcript-line { display: flex; gap: 8px; }
-    .transcript-speaker {
-      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
-      letter-spacing: 0.05em; white-space: nowrap; margin-top: 2px;
-      min-width: 42px;
-    }
-    .transcript-speaker.ai { color: var(--gold); }
-    .transcript-speaker.caller { color: rgba(255,255,255,0.5); }
-    .transcript-msg { font-size: 0.83rem; color: rgba(255,255,255,0.8); line-height: 1.5; }
-    .phone-demo-footer {
-      text-align: center; font-size: 0.75rem; color: rgba(255,255,255,0.4);
-      padding-top: 12px; border-top: 1px solid rgba(255,255,255,0.08);
-    }
-
-    /* ── COMPARISON ── */
-    .compare-section { padding: 80px 0; background: var(--off); }
-    .compare-grid {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 48px;
-    }
-    .compare-card { border-radius: 12px; padding: 32px; }
-    .compare-card.bad { background: #fff5f5; border: 1px solid #fecaca; }
-    .compare-card.good { background: #f0fdf4; border: 1px solid #bbf7d0; }
-    .compare-header {
-      display: flex; align-items: center; gap: 12px; margin-bottom: 24px;
-    }
-    .compare-icon-wrap {
-      width: 44px; height: 44px; border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-    }
-    .compare-icon-wrap.bad { background: #fee2e2; }
-    .compare-icon-wrap.good { background: #dcfce7; }
-    .compare-icon-wrap svg { width: 22px; height: 22px; }
-    .compare-icon-wrap.bad svg { color: var(--red); }
-    .compare-icon-wrap.good svg { color: var(--green); }
-    .compare-header-title {
-      font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 1.1rem;
-    }
-    .compare-header-title.bad { color: var(--red); }
-    .compare-header-title.good { color: var(--green); }
-    .compare-list { display: flex; flex-direction: column; gap: 12px; }
-    .compare-item { display: flex; align-items: flex-start; gap: 10px; }
-    .compare-item svg { width: 18px; height: 18px; flex-shrink: 0; margin-top: 1px; }
-    .compare-item.bad svg { color: var(--red); }
-    .compare-item.good svg { color: var(--green); }
-    .compare-item p { font-size: 0.88rem; color: var(--dark); line-height: 1.5; }
-
-    /* ── PRACTICE AREAS ── */
-    .about-section { padding: 80px 0; background: var(--white); }
-    .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
-    .about-img {
-      border-radius: 14px; overflow: hidden;
-      height: 480px; position: relative;
-    }
-    .about-img img { width: 100%; height: 100%; object-fit: cover; }
-    .about-img-overlay {
-      position: absolute; bottom: 0; left: 0; right: 0;
-      background: linear-gradient(transparent, rgba(13,31,60,0.85));
-      padding: 24px; color: var(--white);
-    }
-    .about-img-stat {
-      font-family: 'Raleway', sans-serif; font-weight: 900; font-size: 2.2rem;
-      color: var(--gold); line-height: 1;
-    }
-    .about-img-label { font-size: 0.82rem; color: rgba(255,255,255,0.75); }
-    .about-checks { display: flex; flex-direction: column; gap: 14px; margin-top: 24px; }
-    .about-check { display: flex; align-items: flex-start; gap: 12px; }
-    .about-check svg { width: 20px; height: 20px; color: var(--gold3); flex-shrink: 0; margin-top: 2px; }
-    .about-check p { font-size: 0.9rem; color: var(--dark); line-height: 1.5; }
-    .about-check strong { color: var(--navy); }
-
-    /* ── REVIEWS ── */
-    .reviews-section { padding: 80px 0; background: var(--navy); }
-    .reviews-section .section-label { color: var(--gold2); }
-    .reviews-section .section-title { color: var(--white); }
-    .pullquote {
-      background: rgba(255,255,255,0.05); border-left: 4px solid var(--gold);
-      border-radius: 0 10px 10px 0; padding: 28px 32px; margin-bottom: 40px;
-    }
-    .pullquote p {
-      font-family: 'Raleway', sans-serif; font-size: 1.3rem; font-weight: 600;
-      color: var(--white); font-style: italic; line-height: 1.6; margin-bottom: 12px;
-    }
-    .pullquote cite { font-size: 0.82rem; color: var(--gold2); }
-    .reviews-grid {
-      display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;
-    }
-    .review-card {
-      background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08);
-      border-radius: 10px; padding: 22px;
-    }
-    .review-stars { display: flex; gap: 3px; margin-bottom: 10px; }
-    .review-stars svg { width: 14px; height: 14px; color: var(--gold); }
-    .review-text { font-size: 0.86rem; color: rgba(255,255,255,0.75); line-height: 1.65; margin-bottom: 14px; }
-    .review-author { font-size: 0.78rem; font-weight: 600; color: var(--gold2); }
-    .review-date { font-size: 0.72rem; color: rgba(255,255,255,0.35); }
-
-    /* ── FAQ ── */
-    .faq-section { padding: 80px 0; background: var(--off); }
-    .faq-list { margin-top: 40px; display: flex; flex-direction: column; gap: 0; }
-    .faq-item { border-bottom: 1px solid var(--border); }
-    .faq-q {
-      width: 100%; text-align: left; background: none; border: none;
-      display: flex; align-items: center; justify-content: space-between;
-      padding: 20px 0; cursor: pointer; gap: 16px;
-    }
-    .faq-q-text {
-      font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 1rem;
-      color: var(--navy); text-align: left;
-    }
-    .faq-q-text span { display: block; font-size: 0.78rem; color: var(--gold3); font-style: italic; font-weight: 500; margin-top: 2px; }
-    .faq-icon { width: 20px; height: 20px; color: var(--navy); flex-shrink: 0; transition: transform 0.25s; }
-    .faq-item.open .faq-icon { transform: rotate(180deg); }
-    .faq-a {
-      max-height: 0; overflow: hidden; transition: max-height 0.35s ease;
-    }
-    .faq-a-inner { padding: 0 0 20px; font-size: 0.9rem; color: var(--mid); line-height: 1.75; }
-
-    /* ── SERVICE AREA ── */
-    .area-section { padding: 80px 0; background: var(--white); }
-    .area-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; margin-top: 48px; }
-    .area-map-card {
-      background: linear-gradient(145deg, var(--navy), var(--navy3));
-      border-radius: 16px; padding: 32px; height: 320px;
-      display: flex; flex-direction: column; justify-content: flex-end;
-      position: relative; overflow: hidden;
-    }
-    .area-map-bg {
-      position: absolute; inset: 0; opacity: 0.08;
-      background-image: repeating-linear-gradient(0deg, transparent, transparent 39px, rgba(255,255,255,0.3) 40px),
-                        repeating-linear-gradient(90deg, transparent, transparent 39px, rgba(255,255,255,0.3) 40px);
-    }
-    .area-pin {
-      position: absolute; top: 50%; left: 50%; transform: translate(-50%,-60%);
-    }
-    .area-pin svg { width: 48px; height: 48px; color: var(--gold); filter: drop-shadow(0 4px 12px rgba(201,168,76,0.5)); }
-    .area-map-label {
-      position: relative; z-index: 1;
-      font-family: 'Raleway', sans-serif; font-weight: 800;
-      font-size: 1.3rem; color: var(--white); margin-bottom: 4px;
-    }
-    .area-map-sub { font-size: 0.78rem; color: rgba(255,255,255,0.6); }
-    .area-neighborhoods {
-      display: grid; grid-template-columns: 1fr 1fr; gap: 10px;
-    }
-    .neighborhood {
-      display: flex; justify-content: space-between; align-items: center;
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 8px; padding: 12px 14px;
-    }
-    .neighborhood-name { font-size: 0.88rem; font-weight: 600; color: var(--navy); }
-    .neighborhood-time { font-size: 0.78rem; color: var(--mid); background: var(--warm); padding: 2px 8px; border-radius: 10px; }
-
-    /* ── CTA BAND ── */
-    .cta-band {
-      padding: 60px 0;
-      background: linear-gradient(135deg, var(--gold3) 0%, var(--gold) 50%, var(--gold2) 100%);
-    }
-    .cta-band-inner {
-      max-width: 1200px; margin: 0 auto; padding: 0 24px;
-      display: flex; align-items: center; justify-content: space-between; gap: 24px;
-      flex-wrap: wrap;
-    }
-    .cta-band-title {
-      font-family: 'Raleway', sans-serif; font-weight: 900; font-size: 1.8rem;
-      color: var(--navy); line-height: 1.2;
-    }
-    .cta-band-sub { font-size: 0.9rem; color: rgba(13,31,60,0.7); margin-top: 4px; }
-    .cta-band-phone {
-      font-family: 'Raleway', sans-serif; font-weight: 900; font-size: 2.2rem;
-      color: var(--navy); text-decoration: none;
-      display: flex; align-items: center; gap: 12px;
-    }
-    .cta-band-phone svg { width: 32px; height: 32px; }
-
-    /* ── CONTACT ── */
-    .contact-section { padding: 80px 0; background: var(--off); }
-    .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; margin-top: 48px; }
-    .hours-table { width: 100%; border-collapse: collapse; }
-    .hours-table tr { border-bottom: 1px solid var(--border); }
-    .hours-table td { padding: 12px 0; font-size: 0.88rem; }
-    .hours-table td:first-child { color: var(--dark); font-weight: 500; }
-    .hours-table td:last-child { color: var(--mid); text-align: right; }
-    .contact-form { display: flex; flex-direction: column; gap: 14px; }
-    .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
-    .form-group { display: flex; flex-direction: column; gap: 6px; }
-    .form-group label { font-size: 0.8rem; font-weight: 600; color: var(--dark); }
-    .form-group input, .form-group select, .form-group textarea {
-      border: 1px solid var(--border); border-radius: 6px;
-      padding: 11px 14px; font-size: 0.88rem; font-family: 'Inter', sans-serif;
-      background: var(--white); color: var(--dark);
-      outline: none; transition: border-color 0.2s;
-    }
-    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
-      border-color: var(--navy);
-    }
-    .form-group textarea { resize: vertical; min-height: 90px; }
-    .form-submit {
-      background: var(--navy); color: var(--white);
-      font-family: 'Raleway', sans-serif; font-weight: 800; font-size: 0.95rem;
-      padding: 14px; border: none; border-radius: 6px; cursor: pointer;
-      transition: background 0.2s;
-    }
-    .form-submit:hover { background: var(--navy3); }
-    .contact-info-block { display: flex; flex-direction: column; gap: 20px; margin-bottom: 32px; }
-    .contact-info-item { display: flex; gap: 12px; align-items: flex-start; }
-    .contact-info-item svg { width: 20px; height: 20px; color: var(--gold3); flex-shrink: 0; margin-top: 2px; }
-    .contact-info-item strong { display: block; font-size: 0.82rem; color: var(--mid); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 2px; }
-    .contact-info-item p { font-size: 0.92rem; color: var(--dark); }
-
-    /* ── FOOTER ── */
-    footer { background: var(--navy); padding: 60px 0 24px; }
-    .footer-inner {
-      max-width: 1200px; margin: 0 auto; padding: 0 24px;
-    }
-    .footer-top {
-      display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 40px;
-      padding-bottom: 40px; border-bottom: 1px solid rgba(255,255,255,0.08);
-      margin-bottom: 24px;
-    }
-    .footer-brand-name {
-      font-family: 'Raleway', sans-serif; font-weight: 900; font-size: 1.4rem;
-      color: var(--white); margin-bottom: 6px;
-    }
-    .footer-brand-sub { font-size: 0.8rem; color: rgba(255,255,255,0.5); margin-bottom: 16px; line-height: 1.5; }
-    .footer-col-title {
-      font-family: 'Raleway', sans-serif; font-weight: 700; font-size: 0.85rem;
-      color: var(--gold2); text-transform: uppercase; letter-spacing: 0.06em;
       margin-bottom: 14px;
     }
-    .footer-links { display: flex; flex-direction: column; gap: 8px; }
-    .footer-links a { font-size: 0.84rem; color: rgba(255,255,255,0.55); text-decoration: none; transition: color 0.2s; }
-    .footer-links a:hover { color: var(--gold2); }
-    .footer-bottom {
-      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 12px;
+    .feature-icon svg { width: 20px; height: 20px; color: #c9a84c; }
+    .feature h3 {
+      font-size: 0.95rem;
+      font-weight: 600;
+      color: #0d1f3c;
+      margin-bottom: 6px;
     }
-    .footer-copy { font-size: 0.78rem; color: rgba(255,255,255,0.35); }
-    .footer-badge {
-      font-size: 0.75rem; color: rgba(255,255,255,0.4);
-      display: flex; align-items: center; gap: 6px;
+    .feature p {
+      font-size: 0.83rem;
+      color: #6b6560;
+      line-height: 1.6;
     }
-    .footer-badge svg { width: 14px; height: 14px; color: var(--gold3); }
 
-    /* ── ANIMATIONS ── */
-    .reveal { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .reveal.in { opacity: 1; transform: none; }
-    .rl { opacity: 0; transform: translateX(-30px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .rl.in { opacity: 1; transform: none; }
-    .rr { opacity: 0; transform: translateX(30px); transition: opacity 0.6s ease, transform 0.6s ease; }
-    .rr.in { opacity: 1; transform: none; }
-    .d1 { transition-delay: 0.1s; }
-    .d2 { transition-delay: 0.2s; }
-    .d3 { transition-delay: 0.3s; }
-    .d4 { transition-delay: 0.4s; }
-
-    /* ── RESPONSIVE ── */
-    @media (max-width: 1024px) {
-      .hero-inner { grid-template-columns: 1fr; }
-      .hero-card { max-width: 480px; }
-      .steps-grid { grid-template-columns: repeat(2, 1fr); }
-      .services-grid { grid-template-columns: repeat(2, 1fr); }
-      .footer-top { grid-template-columns: 1fr 1fr; }
+    /* BILINGUAL CARD */
+    .bilingual-wrap {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 0 24px 56px;
     }
-    @media (max-width: 768px) {
-      .nav-links { display: none; }
-      .bilingual-grid, .compare-grid, .about-grid,
-      .contact-grid, .area-grid, .ai-inner { grid-template-columns: 1fr; }
-      .steps-grid, .services-grid { grid-template-columns: 1fr; }
-      .stats-inner { grid-template-columns: repeat(2, 1fr); }
-      .reviews-grid { grid-template-columns: 1fr; }
-      .footer-top { grid-template-columns: 1fr; }
-      .area-map-card { height: 220px; }
-      .form-row { grid-template-columns: 1fr; }
-      .topbar-left { gap: 10px; }
+    .bilingual-card {
+      background: linear-gradient(135deg, #0d1f3c, #1a3468);
+      border-radius: 16px;
+      padding: 32px;
+    }
+    .bilingual-card h2 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 6px;
+    }
+    .bilingual-card .sub {
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.5);
+      margin-bottom: 24px;
+    }
+    .lang-rows { display: flex; flex-direction: column; gap: 12px; }
+    .lang-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      background: rgba(255,255,255,0.06);
+      border-radius: 8px;
+      padding: 14px 16px;
+    }
+    .flag {
+      font-size: 1.3rem;
+      flex-shrink: 0;
+    }
+    .lang-row-text strong {
+      display: block;
+      font-size: 0.85rem;
+      color: #fff;
+      font-weight: 600;
+      margin-bottom: 2px;
+    }
+    .lang-row-text span {
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.5);
+    }
+    .divider {
+      height: 1px;
+      background: rgba(255,255,255,0.08);
+      margin: 4px 0;
+    }
+    .cta-note {
+      margin-top: 20px;
+      text-align: center;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.45);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .cta-dot {
+      width: 8px; height: 8px;
+      background: #22c55e;
+      border-radius: 50%;
+      box-shadow: 0 0 6px #22c55e;
+      animation: pulse 2s infinite;
+    }
+
+    /* FOOTER */
+    footer {
+      background: #0d1f3c;
+      text-align: center;
+      padding: 24px;
+      font-size: 0.78rem;
+      color: rgba(255,255,255,0.3);
+    }
+    footer a { color: #c9a84c; text-decoration: none; }
+
+    /* MOBILE */
+    @media (max-width: 600px) {
+      .features { grid-template-columns: 1fr; }
+      .hero { padding: 56px 20px 48px; }
+      .bilingual-card { padding: 24px; }
     }
   </style>
 </head>
 <body>
 
-<!-- SVG SPRITE -->
-<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
-  <symbol id="i-phone" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
-  </symbol>
-  <symbol id="i-pin" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/>
-    <circle cx="12" cy="10" r="3"/>
-  </symbol>
-  <symbol id="i-clock" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="10"/>
-    <polyline points="12 6 12 12 16 14"/>
-  </symbol>
-  <symbol id="i-star" viewBox="0 0 24 24" fill="currentColor" stroke="none">
-    <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-  </symbol>
-  <symbol id="i-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="20 6 9 17 4 12"/>
-  </symbol>
-  <symbol id="i-x" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
-  </symbol>
-  <symbol id="i-scale" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="12" y1="3" x2="12" y2="21"/><path d="M3 9l9-6 9 6m-16 12l7-4 7 4"/>
-  </symbol>
-  <symbol id="i-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-  </symbol>
-  <symbol id="i-globe" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
-    <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
-  </symbol>
-  <symbol id="i-mic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M12 1a3 3 0 00-3 3v8a3 3 0 006 0V4a3 3 0 00-3-3z"/>
-    <path d="M19 10v2a7 7 0 01-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/>
-  </symbol>
-  <symbol id="i-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/>
-  </symbol>
-  <symbol id="i-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-    <polyline points="22,6 12,13 2,6"/>
-  </symbol>
-  <symbol id="i-user" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M20 21v-2a4 4 0 00-4-4H8a4 4 0 00-4 4v2"/><circle cx="12" cy="7" r="4"/>
-  </symbol>
-  <symbol id="i-chat" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
-  </symbol>
-  <symbol id="i-chevron-down" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
-    <polyline points="6 9 12 15 18 9"/>
-  </symbol>
-  <symbol id="i-home" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M3 9l9-7 9 7v11a2 2 0 01-2 2H5a2 2 0 01-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/>
-  </symbol>
-  <symbol id="i-briefcase" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/><path d="M16 21V5a2 2 0 00-2-2h-4a2 2 0 00-2 2v16"/>
-  </symbol>
-  <symbol id="i-heart" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
-  </symbol>
-  <symbol id="i-arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-    <line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/>
-  </symbol>
-</svg>
-
-<!-- TOPBAR -->
-<div class="topbar">
-  <div class="topbar-inner">
-    <div class="topbar-left">
-      <div class="topbar-item">
-        <svg><use href="#i-pin"/></svg>
-        <span>Serving clients across Florida</span>
-      </div>
-      <div class="topbar-item">
-        <svg><use href="#i-clock"/></svg>
-        <span>Mon–Fri 9am–6pm · Consultations Available</span>
-      </div>
-    </div>
-    <div class="topbar-right">
-      <div class="lang-badge">EN &amp; ES</div>
-      <a href="tel:+13055550100" class="topbar-cta">Free Consultation</a>
-    </div>
-  </div>
-</div>
-
-<!-- NAV -->
 <nav>
-  <div class="nav-inner">
-    <a href="#" class="nav-logo">
-      <div class="nav-logo-mark">
-        <svg><use href="#i-scale"/></svg>
-      </div>
-      <div class="nav-logo-text">
-        <span class="nav-logo-name">Valera Law</span>
-        <span class="nav-logo-sub">Florida · Bilingual Legal Services</span>
-      </div>
-    </a>
-    <div class="bilingual-dot">Bilingual AI Receptionist — 24/7</div>
-    <div class="nav-links">
-      <a href="#services">Practice Areas</a>
-      <a href="#ai-receptionist">AI Receptionist</a>
-      <a href="#about">About</a>
-      <a href="#contact">Contact</a>
-    </div>
-    <a href="tel:+13055550100" class="nav-cta">
-      <svg width="14" height="14"><use href="#i-phone"/></svg>
-      Call Now
-    </a>
-  </div>
+  <div class="logo">Valera <span>Law</span></div>
+  <div class="lang-tag">EN &amp; ES</div>
 </nav>
 
-<!-- HERO -->
 <section class="hero">
-  <div class="hero-img"></div>
-  <div class="hero-inner">
-    <div class="hero-content">
-      <div class="hero-badge">
-        <svg width="14" height="14" style="color:var(--gold2)"><use href="#i-globe"/></svg>
-        Bilingual Legal Representation · English &amp; Español
-      </div>
-      <h1>Your <span>Legal Rights</span><br>Defended in Both<br>Languages</h1>
-      <p class="hero-es">Sus derechos legales, defendidos en su idioma.</p>
-      <p class="hero-desc">Valera Law provides experienced, compassionate legal representation for Florida families and individuals — in English and Spanish. Our AI receptionist is available 24/7 so you never have to wait to get help.</p>
-      <div class="hero-btns">
-        <a href="tel:+13055550100" class="btn-primary">
-          <svg width="18" height="18"><use href="#i-phone"/></svg>
-          Free Consultation
-        </a>
-        <a href="#ai-receptionist" class="btn-secondary">
-          <svg width="18" height="18"><use href="#i-mic"/></svg>
-          Meet Our AI Receptionist
-        </a>
-      </div>
-    </div>
-
-    <div class="hero-card">
-      <div class="hero-card-title">AI Receptionist — Always Available</div>
-      <div class="hero-card-sub">Answers calls in English and Spanish, 24 hours a day</div>
-
-      <div class="bilingual-highlight">
-        <div class="bilingual-row">
-          <div class="lang-flag">🇺🇸</div>
-          <div class="bilingual-text">
-            <strong>English</strong>
-            <span>"How can I help you today?"</span>
-          </div>
-        </div>
-        <div class="lang-divider"></div>
-        <div class="bilingual-row">
-          <div class="lang-flag">🇲🇽</div>
-          <div class="bilingual-text">
-            <strong>Español</strong>
-            <span>"¿En qué le puedo ayudar hoy?"</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="hero-card-feature">
-        <svg><use href="#i-bolt"/></svg>
-        <p><strong>Instant response</strong> — no hold music, no voicemail. Your call is answered in seconds.</p>
-      </div>
-      <div class="hero-card-feature">
-        <svg><use href="#i-clock"/></svg>
-        <p><strong>Available 24/7</strong> — evenings, weekends, and holidays included.</p>
-      </div>
-      <div class="hero-card-feature">
-        <svg><use href="#i-shield"/></svg>
-        <p><strong>Schedules consultations</strong> and captures your case details right away.</p>
-      </div>
-
-      <a href="#ai-receptionist" class="hero-card-cta">
-        Try the AI Receptionist →
-      </a>
-    </div>
+  <div class="hero-eyebrow">
+    <div class="pulse"></div>
+    AI Receptionist — Available 24/7
+  </div>
+  <h1>Your Law Firm,<br>Available in <em>Any Language</em></h1>
+  <p>Valera Law's AI receptionist answers every call instantly — in English or Spanish — with no hold times, no voicemail.</p>
+  <p class="es">Su firma legal, disponible en su idioma — las 24 horas del día.</p>
+  <div class="arrow-down">
+    <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+      <polyline points="6 9 12 15 18 9"/>
+    </svg>
   </div>
 </section>
 
-<!-- STATS BAND -->
-<div class="stats-band">
-  <div class="stats-inner">
-    <div class="stat-item reveal">
-      <div class="stat-number">24/7</div>
-      <div class="stat-label">AI Receptionist<br>Always Available</div>
+<div class="features">
+  <div class="feature">
+    <div class="feature-icon">
+      <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.81a19.79 19.79 0 01-3.07-8.67A2 2 0 012.18 1h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L6.91 8.09a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/>
+      </svg>
     </div>
-    <div class="stat-item reveal d1">
-      <div class="stat-number">2</div>
-      <div class="stat-label">Languages Spoken<br>English &amp; Español</div>
+    <h3>Zero Hold Time</h3>
+    <p>Answered in seconds, every time — day, night, weekends, and holidays.</p>
+  </div>
+  <div class="feature">
+    <div class="feature-icon">
+      <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/>
+        <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/>
+      </svg>
     </div>
-    <div class="stat-item reveal d2">
-      <div class="stat-number">0s</div>
-      <div class="stat-label">Hold Time<br>Instant Answer</div>
+    <h3>Truly Bilingual</h3>
+    <p>Speaks naturally in English or Spanish — auto-detects your language, no menus needed.</p>
+  </div>
+  <div class="feature">
+    <div class="feature-icon">
+      <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/>
+      </svg>
     </div>
-    <div class="stat-item reveal d3">
-      <div class="stat-number">100%</div>
-      <div class="stat-label">Free Initial<br>Consultation</div>
+    <h3>Books Consultations</h3>
+    <p>Schedules your free consultation on the spot — no staff required, any time of day.</p>
+  </div>
+  <div class="feature">
+    <div class="feature-icon">
+      <svg fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
+        <path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/>
+      </svg>
+    </div>
+    <h3>Captures Every Detail</h3>
+    <p>Gathers your name, contact info, and case summary so your attorney arrives prepared.</p>
+  </div>
+</div>
+
+<div class="bilingual-wrap">
+  <div class="bilingual-card">
+    <h2>Automatic Language Detection</h2>
+    <div class="sub">Just speak — the receptionist follows your lead.</div>
+    <div class="lang-rows">
+      <div class="lang-row">
+        <div class="flag">🇺🇸</div>
+        <div class="lang-row-text">
+          <strong>English</strong>
+          <span>"How can I help you today?"</span>
+        </div>
+      </div>
+      <div class="divider"></div>
+      <div class="lang-row">
+        <div class="flag">🇲🇽</div>
+        <div class="lang-row-text">
+          <strong>Español</strong>
+          <span>"¿En qué le puedo ayudar hoy?"</span>
+        </div>
+      </div>
+    </div>
+    <div class="cta-note">
+      <div class="cta-dot"></div>
+      Try it now — tap the button in the bottom right corner
     </div>
   </div>
 </div>
 
-<!-- BILINGUAL SECTION -->
-<section class="bilingual-section" id="bilingual">
-  <div class="section-inner">
-    <div class="bilingual-grid">
-      <div class="rl">
-        <div class="section-label">Truly Bilingual Service</div>
-        <h2 class="section-title">We Speak Your<br><span>Language</span></h2>
-        <p class="section-desc">For many Florida families, navigating the legal system in a second language creates unnecessary stress and confusion. At Valera Law, our entire team — including our AI receptionist — communicates fluently in both English and Spanish so nothing gets lost in translation.</p>
-        <div class="bilingual-benefits">
-          <div class="benefit-item">
-            <div class="benefit-icon">
-              <svg><use href="#i-globe"/></svg>
-            </div>
-            <div>
-              <div class="benefit-title">Native Fluency, Not Just Translation</div>
-              <p class="benefit-desc">Our AI receptionist doesn't translate — it speaks naturally in whichever language you prefer, ensuring every detail of your case is understood correctly.</p>
-            </div>
-          </div>
-          <div class="benefit-item">
-            <div class="benefit-icon">
-              <svg><use href="#i-mic"/></svg>
-            </div>
-            <div>
-              <div class="benefit-title">Auto-Detects Your Language</div>
-              <p class="benefit-desc">Simply speak naturally. The receptionist automatically responds in the language you use — no buttons to press, no menu options to navigate.</p>
-            </div>
-          </div>
-          <div class="benefit-item">
-            <div class="benefit-icon">
-              <svg><use href="#i-chat"/></svg>
-            </div>
-            <div>
-              <div class="benefit-title">Culturally Competent Representation</div>
-              <p class="benefit-desc">We understand the unique legal challenges Spanish-speaking communities face in Florida and tailor our approach accordingly.</p>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      <div class="rr">
-        <div class="bilingual-demo-card">
-          <div class="demo-label">Live Bilingual Demo</div>
-          <div class="demo-chat">
-            <div class="chat-bubble">
-              <div class="chat-avatar">AI</div>
-              <div>
-                <div class="chat-text">Hello, thank you for calling Valera Law! How can I help you today?</div>
-                <div class="chat-lang-tag">🇺🇸 English</div>
-              </div>
-            </div>
-            <div class="chat-bubble right">
-              <div class="chat-avatar" style="background:rgba(201,168,76,0.2);color:var(--gold)">You</div>
-              <div>
-                <div class="chat-text">Necesito hablar con un abogado sobre mi caso de inmigración.</div>
-                <div class="chat-lang-tag" style="text-align:right">🇲🇽 Español</div>
-              </div>
-            </div>
-            <div class="chat-bubble">
-              <div class="chat-avatar">AI</div>
-              <div>
-                <div class="chat-text">Por supuesto, con mucho gusto le ayudo en español. ¿Podría decirme su nombre y una breve descripción de su situación?</div>
-                <div class="chat-lang-tag">🇲🇽 Switched to Español automatically</div>
-              </div>
-            </div>
-            <div class="chat-bubble right">
-              <div class="chat-avatar" style="background:rgba(201,168,76,0.2);color:var(--gold)">You</div>
-              <div>
-                <div class="chat-text">Me llamo María. Tengo una audiencia la próxima semana y no sé qué hacer.</div>
-                <div class="chat-lang-tag" style="text-align:right">🇲🇽 Español</div>
-              </div>
-            </div>
-            <div class="chat-bubble">
-              <div class="chat-avatar">AI</div>
-              <div>
-                <div class="chat-text">Entiendo, María. Permítame programar una consulta urgente con el equipo de Valera Law para mañana. ¿Le conviene por la mañana o por la tarde?</div>
-                <div class="chat-lang-tag">🇲🇽 Scheduling consultation in Español</div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- HOW IT WORKS -->
-<section class="how-section" id="how">
-  <div class="section-inner">
-    <div class="section-label reveal">How It Works</div>
-    <h2 class="section-title reveal">Getting Help is Simple</h2>
-    <p class="section-desc reveal">From your first call to your free consultation, our process is designed to be fast, easy, and stress-free — in the language you choose.</p>
-    <div class="steps-grid">
-      <div class="step-card reveal">
-        <div class="step-num">01</div>
-        <svg class="step-icon"><use href="#i-phone"/></svg>
-        <div class="step-title">Call or Click</div>
-        <div class="step-title-es">Llame o haga clic</div>
-        <p class="step-desc">Reach us anytime — day or night. Our AI receptionist answers immediately in English or Spanish with no hold times or voicemail.</p>
-      </div>
-      <div class="step-card reveal d1">
-        <div class="step-num">02</div>
-        <svg class="step-icon"><use href="#i-chat"/></svg>
-        <div class="step-title">Tell Us Your Situation</div>
-        <div class="step-title-es">Cuéntenos su situación</div>
-        <p class="step-desc">Describe your legal issue in English or Spanish. Our AI captures all the key details so your attorney is fully prepared before your consultation.</p>
-      </div>
-      <div class="step-card reveal d2">
-        <div class="step-num">03</div>
-        <svg class="step-icon"><use href="#i-clock"/></svg>
-        <div class="step-title">Book Your Consultation</div>
-        <div class="step-title-es">Reserve su consulta</div>
-        <p class="step-desc">Get scheduled for a free consultation at a time that works for you. Flexible morning, afternoon, and evening slots available.</p>
-      </div>
-      <div class="step-card reveal d3">
-        <div class="step-num">04</div>
-        <svg class="step-icon"><use href="#i-scale"/></svg>
-        <div class="step-title">Get Representation</div>
-        <div class="step-title-es">Obtenga representación</div>
-        <p class="step-desc">Meet with your attorney, review your options, and begin building your case with a legal team that truly understands you.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- PRACTICE AREAS -->
-<section class="services-section" id="services">
-  <div class="section-inner">
-    <div class="section-label reveal">Practice Areas</div>
-    <h2 class="section-title reveal">How We Can <span>Help You</span></h2>
-    <p class="section-desc reveal">Valera Law provides experienced representation across a range of legal matters affecting Florida families and individuals.</p>
-    <div class="services-grid">
-      <div class="service-card reveal">
-        <div class="service-icon"><svg><use href="#i-home"/></svg></div>
-        <div class="service-name">Immigration Law</div>
-        <div class="service-name-es">Derecho Migratorio</div>
-        <p class="service-desc">Comprehensive immigration legal services to help you navigate complex U.S. immigration processes with confidence.</p>
-        <ul class="service-list">
-          <li><svg><use href="#i-check"/></svg> Visas &amp; Green Cards</li>
-          <li><svg><use href="#i-check"/></svg> Citizenship &amp; Naturalization</li>
-          <li><svg><use href="#i-check"/></svg> Deportation Defense</li>
-          <li><svg><use href="#i-check"/></svg> DACA &amp; TPS Renewals</li>
-        </ul>
-      </div>
-      <div class="service-card reveal d1">
-        <div class="service-icon"><svg><use href="#i-heart"/></svg></div>
-        <div class="service-name">Family Law</div>
-        <div class="service-name-es">Derecho de Familia</div>
-        <p class="service-desc">Protecting your family's rights and well-being through compassionate, experienced legal representation.</p>
-        <ul class="service-list">
-          <li><svg><use href="#i-check"/></svg> Divorce &amp; Separation</li>
-          <li><svg><use href="#i-check"/></svg> Child Custody &amp; Support</li>
-          <li><svg><use href="#i-check"/></svg> Adoption Proceedings</li>
-          <li><svg><use href="#i-check"/></svg> Domestic Violence Protection</li>
-        </ul>
-      </div>
-      <div class="service-card reveal d2">
-        <div class="service-icon"><svg><use href="#i-shield"/></svg></div>
-        <div class="service-name">Criminal Defense</div>
-        <div class="service-name-es">Defensa Criminal</div>
-        <p class="service-desc">Aggressive, strategic defense for individuals facing criminal charges at any stage of the legal process.</p>
-        <ul class="service-list">
-          <li><svg><use href="#i-check"/></svg> DUI &amp; Traffic Offenses</li>
-          <li><svg><use href="#i-check"/></svg> Drug Charges</li>
-          <li><svg><use href="#i-check"/></svg> Misdemeanor &amp; Felony</li>
-          <li><svg><use href="#i-check"/></svg> Expungements</li>
-        </ul>
-      </div>
-      <div class="service-card reveal">
-        <div class="service-icon"><svg><use href="#i-briefcase"/></svg></div>
-        <div class="service-name">Business Law</div>
-        <div class="service-name-es">Derecho Empresarial</div>
-        <p class="service-desc">Legal support for entrepreneurs and business owners building their American dream — from formation to contracts.</p>
-        <ul class="service-list">
-          <li><svg><use href="#i-check"/></svg> Business Formation (LLC, Corp)</li>
-          <li><svg><use href="#i-check"/></svg> Contract Review &amp; Drafting</li>
-          <li><svg><use href="#i-check"/></svg> Business Disputes</li>
-          <li><svg><use href="#i-check"/></svg> Employment Agreements</li>
-        </ul>
-      </div>
-      <div class="service-card reveal d1">
-        <div class="service-icon"><svg><use href="#i-user"/></svg></div>
-        <div class="service-name">Personal Injury</div>
-        <div class="service-name-es">Lesiones Personales</div>
-        <p class="service-desc">Fighting for maximum compensation for accident victims and their families across Florida.</p>
-        <ul class="service-list">
-          <li><svg><use href="#i-check"/></svg> Auto &amp; Truck Accidents</li>
-          <li><svg><use href="#i-check"/></svg> Slip &amp; Fall Injuries</li>
-          <li><svg><use href="#i-check"/></svg> Workplace Injuries</li>
-          <li><svg><use href="#i-check"/></svg> Wrongful Death</li>
-        </ul>
-      </div>
-      <div class="service-card reveal d2">
-        <div class="service-icon"><svg><use href="#i-scale"/></svg></div>
-        <div class="service-name">Civil Litigation</div>
-        <div class="service-name-es">Litigación Civil</div>
-        <p class="service-desc">Strategic representation in civil disputes, protecting your rights in court and in negotiations.</p>
-        <ul class="service-list">
-          <li><svg><use href="#i-check"/></svg> Landlord-Tenant Disputes</li>
-          <li><svg><use href="#i-check"/></svg> Contract Disputes</li>
-          <li><svg><use href="#i-check"/></svg> Property Disputes</li>
-          <li><svg><use href="#i-check"/></svg> Appeals</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- AI RECEPTIONIST SECTION -->
-<section class="ai-section" id="ai-receptionist">
-  <div class="ai-inner">
-    <div class="ai-content rl">
-      <div class="section-label">Powered by AI</div>
-      <h2 class="section-title">Meet Your <span>24/7 Bilingual</span><br>Receptionist</h2>
-      <p class="section-desc">Never miss a potential client because of office hours again. Valera Law's AI receptionist answers every call instantly — in English or Spanish — schedules consultations, and captures case details so your attorneys are always prepared.</p>
-      <div class="ai-features">
-        <div class="ai-feature">
-          <svg><use href="#i-globe"/></svg>
-          <div>
-            <div class="ai-feature-title">Fully Bilingual — English &amp; Español</div>
-            <p class="ai-feature-desc">Seamlessly switches languages based on how callers speak. No menus, no transfers — just natural conversation.</p>
-          </div>
-        </div>
-        <div class="ai-feature">
-          <svg><use href="#i-bolt"/></svg>
-          <div>
-            <div class="ai-feature-title">Zero Hold Time, Zero Voicemail</div>
-            <p class="ai-feature-desc">Every call answered in under 3 seconds, 24 hours a day, 365 days a year — including holidays.</p>
-          </div>
-        </div>
-        <div class="ai-feature">
-          <svg><use href="#i-clock"/></svg>
-          <div>
-            <div class="ai-feature-title">Books Consultations Automatically</div>
-            <p class="ai-feature-desc">The AI schedules free consultations on the spot and sends confirmation details — no staff required.</p>
-          </div>
-        </div>
-        <div class="ai-feature">
-          <svg><use href="#i-shield"/></svg>
-          <div>
-            <div class="ai-feature-title">Captures Every Case Detail</div>
-            <p class="ai-feature-desc">Gathers caller name, contact info, case type, and situation summary so attorneys walk into every consultation prepared.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="ai-phone-demo rr">
-      <div class="phone-demo-top">
-        <div class="phone-status-dot"></div>
-        <div class="phone-status-text"><strong>Valera Law AI Receptionist</strong> · Live Now</div>
-      </div>
-      <div class="phone-waveform">
-        <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
-        <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
-        <div class="wave-bar"></div><div class="wave-bar"></div><div class="wave-bar"></div>
-      </div>
-      <div class="phone-transcript">
-        <div class="transcript-line">
-          <span class="transcript-speaker ai">AI</span>
-          <p class="transcript-msg">Thank you for calling Valera Law. How can I help you today? / ¿En qué puedo ayudarle hoy?</p>
-        </div>
-        <div class="transcript-line">
-          <span class="transcript-speaker caller">Caller</span>
-          <p class="transcript-msg">Necesito ayuda con mi situación migratoria...</p>
-        </div>
-        <div class="transcript-line">
-          <span class="transcript-speaker ai">AI</span>
-          <p class="transcript-msg">Con gusto le ayudo en español. ¿Podría decirme su nombre y describir brevemente su situación?</p>
-        </div>
-        <div class="transcript-line">
-          <span class="transcript-speaker caller">Caller</span>
-          <p class="transcript-msg">Soy Carlos. Tengo una audiencia de asilo en dos semanas...</p>
-        </div>
-        <div class="transcript-line">
-          <span class="transcript-speaker ai">AI</span>
-          <p class="transcript-msg">Entiendo la urgencia, Carlos. Le voy a programar una consulta urgente para mañana. ¿A qué hora le queda mejor?</p>
-        </div>
-      </div>
-      <div class="phone-demo-footer">Click the microphone button to speak with the AI Receptionist →</div>
-    </div>
-  </div>
-</section>
-
-<!-- COMPARISON -->
-<section class="compare-section" id="why-valera">
-  <div class="section-inner">
-    <div class="section-label reveal">Why Choose Valera Law</div>
-    <h2 class="section-title reveal">The Difference is <span>Clear</span></h2>
-    <p class="section-desc reveal">Not all law firms are equipped to truly serve bilingual communities. Here's what sets Valera Law apart.</p>
-    <div class="compare-grid">
-      <div class="compare-card bad reveal rl">
-        <div class="compare-header">
-          <div class="compare-icon-wrap bad"><svg><use href="#i-x"/></svg></div>
-          <div class="compare-header-title bad">Other Law Firms</div>
-        </div>
-        <div class="compare-list">
-          <div class="compare-item bad">
-            <svg><use href="#i-x"/></svg>
-            <p>English-only staff — Spanish speakers must use an interpreter or struggle to communicate</p>
-          </div>
-          <div class="compare-item bad">
-            <svg><use href="#i-x"/></svg>
-            <p>Voicemail during evenings &amp; weekends — urgent calls go unanswered for days</p>
-          </div>
-          <div class="compare-item bad">
-            <svg><use href="#i-x"/></svg>
-            <p>Long hold times and confusing phone menus that frustrate callers</p>
-          </div>
-          <div class="compare-item bad">
-            <svg><use href="#i-x"/></svg>
-            <p>Attorney unprepared at consultation — you repeat your story multiple times</p>
-          </div>
-          <div class="compare-item bad">
-            <svg><use href="#i-x"/></svg>
-            <p>Cultural nuances missed — representation that doesn't account for your background</p>
-          </div>
-        </div>
-      </div>
-
-      <div class="compare-card good reveal rr">
-        <div class="compare-header">
-          <div class="compare-icon-wrap good"><svg><use href="#i-check"/></svg></div>
-          <div class="compare-header-title good">Valera Law</div>
-        </div>
-        <div class="compare-list">
-          <div class="compare-item good">
-            <svg><use href="#i-check"/></svg>
-            <p>Fully bilingual team and AI receptionist — speak English or Spanish with equal fluency</p>
-          </div>
-          <div class="compare-item good">
-            <svg><use href="#i-check"/></svg>
-            <p>24/7 AI receptionist — every call answered immediately, any hour, any day</p>
-          </div>
-          <div class="compare-item good">
-            <svg><use href="#i-check"/></svg>
-            <p>Zero hold time — connected in seconds to an AI that speaks your language naturally</p>
-          </div>
-          <div class="compare-item good">
-            <svg><use href="#i-check"/></svg>
-            <p>AI captures full case details upfront — your attorney knows your story before you arrive</p>
-          </div>
-          <div class="compare-item good">
-            <svg><use href="#i-check"/></svg>
-            <p>Culturally competent representation built for Florida's diverse communities</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- ABOUT -->
-<section class="about-section" id="about">
-  <div class="section-inner">
-    <div class="about-grid">
-      <div class="rl">
-        <div class="about-img">
-          <img src="https://images.unsplash.com/photo-1521791055366-0d553872952f?w=800&q=85" alt="Valera Law legal team"/>
-          <div class="about-img-overlay">
-            <div class="about-img-stat">100%</div>
-            <div class="about-img-label">Bilingual Client Service</div>
-          </div>
-        </div>
-      </div>
-      <div class="rr">
-        <div class="section-label">About Valera Law</div>
-        <h2 class="section-title">Legal Excellence With a <span>Human Touch</span></h2>
-        <p class="section-desc">At Valera Law, we believe everyone deserves access to quality legal representation — regardless of the language they speak. We've built our practice around the needs of Florida's diverse communities, combining experienced legal expertise with compassionate, personalized service.</p>
-        <div class="about-checks">
-          <div class="about-check">
-            <svg><use href="#i-check"/></svg>
-            <p><strong>Experienced legal team</strong> — years of combined experience representing Florida families and individuals across diverse practice areas</p>
-          </div>
-          <div class="about-check">
-            <svg><use href="#i-check"/></svg>
-            <p><strong>Truly bilingual</strong> — not just translated, but culturally fluent in both English-speaking and Spanish-speaking communities</p>
-          </div>
-          <div class="about-check">
-            <svg><use href="#i-check"/></svg>
-            <p><strong>Free initial consultation</strong> — you can meet with our team at no cost before making any commitment</p>
-          </div>
-          <div class="about-check">
-            <svg><use href="#i-check"/></svg>
-            <p><strong>Transparent fees</strong> — clear, upfront pricing with no surprise bills or hidden costs</p>
-          </div>
-          <div class="about-check">
-            <svg><use href="#i-check"/></svg>
-            <p><strong>Client-centered approach</strong> — you're never just a case number. We maintain close communication throughout your legal matter</p>
-          </div>
-          <div class="about-check">
-            <svg><use href="#i-check"/></svg>
-            <p><strong>Community-rooted</strong> — proudly serving Florida's immigrant communities and diverse families for years</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- REVIEWS -->
-<section class="reviews-section" id="reviews">
-  <div class="section-inner">
-    <div class="section-label reveal">Client Testimonials</div>
-    <h2 class="section-title reveal">What Our <span style="color:var(--gold)">Clients Say</span></h2>
-    <div class="pullquote reveal">
-      <p>"Valera Law changed my life. I was terrified about my immigration case and couldn't find a lawyer who could really communicate with me in Spanish. From the very first call — even late at night — someone answered and understood exactly what I was going through. My case was approved and my family is together."</p>
-      <cite>— Rosa M., Immigration Client · Miami, FL</cite>
-    </div>
-    <div class="reviews-grid">
-      <div class="review-card reveal">
-        <div class="review-stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
-        <p class="review-text">"I called at 11pm thinking I'd get a voicemail. Instead an AI answered immediately in Spanish, took all my information, and had an attorney call me back first thing in the morning. Incredible service."</p>
-        <div class="review-author">Carlos V.</div>
-        <div class="review-date">Family Law Client · Fort Lauderdale</div>
-      </div>
-      <div class="review-card reveal d1">
-        <div class="review-stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
-        <p class="review-text">"The bilingual AI receptionist is a game changer. As someone who's more comfortable in Spanish, I finally felt heard from the very first call. The attorney was already familiar with my situation when we met."</p>
-        <div class="review-author">Maria L.</div>
-        <div class="review-date">Immigration Client · Hialeah</div>
-      </div>
-      <div class="review-card reveal d2">
-        <div class="review-stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
-        <p class="review-text">"Professional, knowledgeable, and genuinely caring. They handled my divorce case with sensitivity and kept me informed every step of the way — in English, which I appreciated since my Spanish isn't great."</p>
-        <div class="review-author">Jennifer R.</div>
-        <div class="review-date">Family Law Client · Coral Gables</div>
-      </div>
-      <div class="review-card reveal">
-        <div class="review-stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
-        <p class="review-text">"Fueron muy amables y profesionales. Me ayudaron con mi caso de custodia y siempre estuvieron disponibles para responder mis preguntas. Los recomiendo al 100%."</p>
-        <div class="review-author">Diego S.</div>
-        <div class="review-date">Family Law Client · Doral</div>
-      </div>
-      <div class="review-card reveal d1">
-        <div class="review-stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
-        <p class="review-text">"The free consultation was more thorough than I expected. They reviewed my entire situation and gave me real options, not just a sales pitch. I hired them and couldn't be happier."</p>
-        <div class="review-author">Thomas B.</div>
-        <div class="review-date">Business Law Client · Brickell</div>
-      </div>
-      <div class="review-card reveal d2">
-        <div class="review-stars"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></div>
-        <p class="review-text">"Estaba muy asustada con mi situación de asilo pero el equipo de Valera Law me dio esperanza y una estrategia clara. Ahora tengo mis papeles y una vida nueva en Estados Unidos."</p>
-        <div class="review-author">Ana P.</div>
-        <div class="review-date">Immigration Client · Kendall</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq-section" id="faq">
-  <div class="section-inner">
-    <div class="section-label reveal">Frequently Asked Questions</div>
-    <h2 class="section-title reveal">Got <span>Questions?</span></h2>
-    <div class="faq-list reveal">
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <div class="faq-q-text">Do you really offer a free consultation?
-            <span>¿Realmente ofrecen consulta gratuita?</span>
-          </div>
-          <svg class="faq-icon"><use href="#i-chevron-down"/></svg>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">Yes — every new client receives a completely free initial consultation with no obligation. This is your opportunity to share your situation, ask questions, and understand your legal options before making any commitment. We believe you should feel confident in your legal team before signing anything.</div>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <div class="faq-q-text">Can I get legal help in Spanish?
-            <span>¿Puedo recibir ayuda legal en español?</span>
-          </div>
-          <svg class="faq-icon"><use href="#i-chevron-down"/></svg>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">Absolutely. Our entire team — including our attorneys, support staff, and AI phone receptionist — provides services in both English and Spanish with equal fluency. You will never need a translator or interpreter when working with Valera Law. Simply speak in the language you're most comfortable with and we'll follow your lead.</div>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <div class="faq-q-text">What happens when I call after hours?
-            <span>¿Qué pasa cuando llamo fuera de horario?</span>
-          </div>
-          <svg class="faq-icon"><use href="#i-chevron-down"/></svg>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">Our AI receptionist answers every call immediately — 24 hours a day, 7 days a week, including weekends and holidays. It will gather your information and case details in English or Spanish, then schedule your free consultation. Urgent matters can be flagged for priority follow-up. You will never be sent to voicemail.</div>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <div class="faq-q-text">How much does legal representation cost?
-            <span>¿Cuánto cuesta la representación legal?</span>
-          </div>
-          <svg class="faq-icon"><use href="#i-chevron-down"/></svg>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">Fees vary depending on the type and complexity of your case. Some cases — like personal injury — are handled on a contingency basis, meaning you pay nothing unless we win. Other matters are billed at transparent flat rates or hourly fees that we discuss clearly at your free consultation. We never surprise our clients with unexpected bills.</div>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <div class="faq-q-text">How quickly can I get an appointment?
-            <span>¿Qué tan rápido puedo obtener una cita?</span>
-          </div>
-          <svg class="faq-icon"><use href="#i-chevron-down"/></svg>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">Most clients can schedule a free consultation within 24–48 hours. For urgent situations — such as upcoming court dates, immigration hearings, or emergency protective orders — we prioritize same-day or next-morning appointments. Let our AI receptionist know the urgency of your situation and we will respond accordingly.</div>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <div class="faq-q-text">Do you handle cases outside of Florida?
-            <span>¿Manejan casos fuera de Florida?</span>
-          </div>
-          <svg class="faq-icon"><use href="#i-chevron-down"/></svg>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">Valera Law is licensed to practice law in Florida. For immigration matters, which are governed by federal law, we assist clients across the country. If you have a legal matter in another state, contact us and we will discuss your options or refer you to a trusted attorney in your jurisdiction.</div>
-        </div>
-      </div>
-      <div class="faq-item">
-        <button class="faq-q" onclick="toggleFaq(this)">
-          <div class="faq-q-text">Is my information kept confidential?
-            <span>¿Mi información se mantiene confidencial?</span>
-          </div>
-          <svg class="faq-icon"><use href="#i-chevron-down"/></svg>
-        </button>
-        <div class="faq-a">
-          <div class="faq-a-inner">Yes. Attorney-client privilege applies from your very first consultation. All information you share — whether with an attorney, staff member, or our AI receptionist — is treated with strict confidentiality. We never share your information with third parties without your explicit consent. Your privacy and trust are fundamental to our practice.</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- SERVICE AREA -->
-<section class="area-section" id="area">
-  <div class="section-inner">
-    <div class="section-label reveal">Service Area</div>
-    <h2 class="section-title reveal">Serving <span>All of South Florida</span></h2>
-    <p class="section-desc reveal">Valera Law serves clients throughout Miami-Dade, Broward, and Palm Beach counties — in person and remotely.</p>
-    <div class="area-grid">
-      <div class="area-map-card reveal rl">
-        <div class="area-map-bg"></div>
-        <div class="area-pin">
-          <svg><use href="#i-pin"/></svg>
-        </div>
-        <div class="area-map-label">South Florida</div>
-        <div class="area-map-sub">Miami-Dade · Broward · Palm Beach</div>
-      </div>
-      <div class="area-neighborhoods reveal rr">
-        <div class="neighborhood">
-          <span class="neighborhood-name">Miami</span>
-          <span class="neighborhood-time">Downtown Office</span>
-        </div>
-        <div class="neighborhood">
-          <span class="neighborhood-name">Hialeah</span>
-          <span class="neighborhood-time">~15 min</span>
-        </div>
-        <div class="neighborhood">
-          <span class="neighborhood-name">Coral Gables</span>
-          <span class="neighborhood-time">~10 min</span>
-        </div>
-        <div class="neighborhood">
-          <span class="neighborhood-name">Doral</span>
-          <span class="neighborhood-time">~20 min</span>
-        </div>
-        <div class="neighborhood">
-          <span class="neighborhood-name">Kendall</span>
-          <span class="neighborhood-time">~25 min</span>
-        </div>
-        <div class="neighborhood">
-          <span class="neighborhood-name">Brickell</span>
-          <span class="neighborhood-time">~5 min</span>
-        </div>
-        <div class="neighborhood">
-          <span class="neighborhood-name">Fort Lauderdale</span>
-          <span class="neighborhood-time">~35 min</span>
-        </div>
-        <div class="neighborhood">
-          <span class="neighborhood-name">Homestead</span>
-          <span class="neighborhood-time">~40 min</span>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- CTA BAND -->
-<div class="cta-band">
-  <div class="cta-band-inner">
-    <div>
-      <div class="cta-band-title">Ready to Talk? We're Here — Right Now.</div>
-      <div class="cta-band-sub">Free consultation · English &amp; Español · No voicemail, ever</div>
-    </div>
-    <a href="tel:+13055550100" class="cta-band-phone">
-      <svg width="32" height="32"><use href="#i-phone"/></svg>
-      (305) 555-0100
-    </a>
-  </div>
-</div>
-
-<!-- CONTACT -->
-<section class="contact-section" id="contact">
-  <div class="section-inner">
-    <div class="section-label reveal">Get in Touch</div>
-    <h2 class="section-title reveal">Schedule Your <span>Free Consultation</span></h2>
-    <div class="contact-grid">
-      <div class="reveal rl">
-        <div class="contact-info-block">
-          <div class="contact-info-item">
-            <svg><use href="#i-phone"/></svg>
-            <div>
-              <strong>Phone</strong>
-              <p>(305) 555-0100</p>
-            </div>
-          </div>
-          <div class="contact-info-item">
-            <svg><use href="#i-pin"/></svg>
-            <div>
-              <strong>Office</strong>
-              <p>Miami, Florida</p>
-            </div>
-          </div>
-          <div class="contact-info-item">
-            <svg><use href="#i-mail"/></svg>
-            <div>
-              <strong>Email</strong>
-              <p>info@valeralaw.com</p>
-            </div>
-          </div>
-          <div class="contact-info-item">
-            <svg><use href="#i-globe"/></svg>
-            <div>
-              <strong>Languages</strong>
-              <p>English &amp; Español — Equally Fluent</p>
-            </div>
-          </div>
-        </div>
-        <div class="section-label" style="margin-bottom:14px">Office Hours</div>
-        <table class="hours-table">
-          <tr><td>Monday – Friday</td><td>9:00 AM – 6:00 PM</td></tr>
-          <tr><td>Saturday</td><td>10:00 AM – 2:00 PM</td></tr>
-          <tr><td>Sunday</td><td>By Appointment</td></tr>
-          <tr><td>AI Receptionist</td><td>24 / 7 / 365</td></tr>
-        </table>
-      </div>
-      <div class="reveal rr">
-        <form class="contact-form" onsubmit="return false;">
-          <div class="form-row">
-            <div class="form-group">
-              <label>Full Name / Nombre Completo</label>
-              <input type="text" placeholder="Your name">
-            </div>
-            <div class="form-group">
-              <label>Phone / Teléfono</label>
-              <input type="tel" placeholder="(305) 555-0000">
-            </div>
-          </div>
-          <div class="form-group">
-            <label>Email</label>
-            <input type="email" placeholder="your@email.com">
-          </div>
-          <div class="form-group">
-            <label>Practice Area / Área Legal</label>
-            <select>
-              <option>Immigration Law / Derecho Migratorio</option>
-              <option>Family Law / Derecho de Familia</option>
-              <option>Criminal Defense / Defensa Criminal</option>
-              <option>Personal Injury / Lesiones Personales</option>
-              <option>Business Law / Derecho Empresarial</option>
-              <option>Civil Litigation / Litigación Civil</option>
-              <option>Other / Otro</option>
-            </select>
-          </div>
-          <div class="form-group">
-            <label>Brief Description / Descripción Breve</label>
-            <textarea placeholder="Tell us about your situation in English or Spanish...&#10;Cuéntenos sobre su situación en inglés o español..."></textarea>
-          </div>
-          <button type="submit" class="form-submit">
-            Request Free Consultation / Solicitar Consulta Gratuita
-          </button>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- FOOTER -->
 <footer>
-  <div class="footer-inner">
-    <div class="footer-top">
-      <div>
-        <div class="footer-brand-name">Valera Law</div>
-        <div class="footer-brand-sub">Bilingual legal representation for Florida's diverse communities. English &amp; Español — 24/7 AI Receptionist available now.</div>
-        <div style="display:flex;align-items:center;gap:8px;margin-top:12px;">
-          <div class="phone-status-dot" style="width:8px;height:8px;"></div>
-          <span style="font-size:0.78rem;color:rgba(255,255,255,0.5);">AI Receptionist Online Now</span>
-        </div>
-      </div>
-      <div>
-        <div class="footer-col-title">Practice Areas</div>
-        <div class="footer-links">
-          <a href="#services">Immigration Law</a>
-          <a href="#services">Family Law</a>
-          <a href="#services">Criminal Defense</a>
-          <a href="#services">Personal Injury</a>
-          <a href="#services">Business Law</a>
-          <a href="#services">Civil Litigation</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-col-title">Quick Links</div>
-        <div class="footer-links">
-          <a href="#how">How It Works</a>
-          <a href="#ai-receptionist">AI Receptionist</a>
-          <a href="#about">About Us</a>
-          <a href="#faq">FAQ</a>
-          <a href="#contact">Contact</a>
-        </div>
-      </div>
-      <div>
-        <div class="footer-col-title">Contact</div>
-        <div class="footer-links">
-          <a href="tel:+13055550100">(305) 555-0100</a>
-          <a href="mailto:info@valeralaw.com">info@valeralaw.com</a>
-          <a href="#">Miami, Florida</a>
-          <a href="#contact">Free Consultation</a>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <div class="footer-copy">&copy; 2026 Valera Law. All rights reserved. Attorney advertising — results may vary.</div>
-      <div class="footer-badge">
-        <svg><use href="#i-shield"/></svg>
-        Attorney-Client Privilege Protected
-      </div>
-    </div>
-  </div>
+  &copy; 2026 Valera Law &nbsp;·&nbsp; <a href="tel:+13055550100">(305) 555-0100</a>
 </footer>
 
-<script>
-  // Scroll reveal
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-  }, { threshold: 0.1 });
-  document.querySelectorAll('.reveal, .rl, .rr').forEach(el => observer.observe(el));
-
-  // FAQ accordion
-  function toggleFaq(btn) {
-    const item = btn.closest('.faq-item');
-    const answer = item.querySelector('.faq-a');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item.open').forEach(i => {
-      i.classList.remove('open');
-      i.querySelector('.faq-a').style.maxHeight = '0';
-    });
-    if (!isOpen) {
-      item.classList.add('open');
-      answer.style.maxHeight = answer.scrollHeight + 'px';
-    }
-  }
-</script>
 </body>
 </html>
